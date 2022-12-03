@@ -1,10 +1,23 @@
 {
     "manifest_version": 3,
-    "name": "Hello Extensions",
-    "description": "Base Level Extension",
-    "version": "1.0",
+    "name": "Microtrack Alpha",
+    "description": "Track your micros, microsoft, microwave, microphone, microorganisms, etc...",
+    "version": "0.1",
     "action": {
-      "default_popup": "hello.html",
+      "default_popup": "./popup/popup.html",
       "default_icon": "hello_extensions.png"
+    },
+    "permissions":[
+        "background",
+        "tabs"
+    ],
+    "content_scripts": [
+      {
+        "matches": ["https://www.newworld.co.nz/*"],
+        "js": ["content-script.js"]
+      }
+    ],
+    "background": {
+        "service_worker": "scripts/background.js"
     }
   }

@@ -20,7 +20,7 @@ Work in progress application for MicroTrack.
 ## Architecture Notes
 
 The popup folder is the most important. This contains the actual popup. The part of popup.js with access to the 'trolley' variable is where the most interesting stuff should happen.
-*In general, popup.js should get everything it needs to display information from other files (such as the cart contents), and should only focus on displaying that information*
+*In general, popup.js should get everything it needs to display information from other files (such as the cart contents), and should only focus on displaying that information.*
 
 Scripts contains other scripts, currently just background.js. (background.js needs to be seperate from popup.js as popup.js only has access to the popup DOM, but background.js has access to the page DOM)
 

@@ -1,5 +1,7 @@
 let trolley = []
 
+// Gets the trolley, and sends it to the popup.
+// Requires sendResponse, the callback that will send the trolley to the popup
 async function sendTrolley(sendResponse) {
     const tab = await getCurrentTab();
     if (tab) {
@@ -12,25 +14,28 @@ async function sendTrolley(sendResponse) {
             trolley = newTrolley;
         }
     }
-    console.log('every day I trolley...', trolley)
     sendResponse({ trolley });
 }
 
-chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
+// Listens for getTrolley, then sends the trolley if it is provided
+chrome.runtime.onMessage.addListener((request, _, sendResponse) => {
     if (request === "getTrolley") {
         sendTrolley(sendResponse);
-        return true;
+        return true; // Returning true tells chrome we expect an async response (as sendTrolley is async)
     } else {
         sendResponse({});
     }
 });
 
+// Returns the current tab (tabs.Tab or undefined)
 async function getCurrentTab() {
     let queryOptions = { active: true, lastFocusedWindow: true };
     let [tab] = await chrome.tabs.query(queryOptions);
     return tab;
-  }
+}
 
+// Returns trolley contents if trolley is open on a New World page.
+// Trolley is an array of items with a name (e.g. 'Anchor Blue Milk') and count (e.g. 2). 
 function getTrolley() {
     const trolley = [];
     const trolleyDOM = document.getElementsByClassName('m-trolley-preview__item-body') ?? [];

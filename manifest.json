@@ -1,26 +1,26 @@
 {
-    "manifest_version": 3,
-    "name": "Microtrack Alpha",
-    "description": "Track your micros, microsoft, microwave, microphone, microorganisms, etc...",
-    "version": "0.1",
-    "action": {
-      "default_popup": "popup/popup.html"
-    },
-    "permissions":[
-        "background",
-        "tabs",
-        "scripting"
-    ],
-    "host_permissions": [
-      "https://www.newworld.co.nz/shop/*"
-    ],
-    "icons": {
-      "16": "images/microtrack-16.png",
-      "32": "images/microtrack-32.png",
-      "48": "images/microtrack-48.png",
-      "128": "images/microtrack-128.png"
-    },
-    "background": {
-      "service_worker": "scripts/background.js"
-    }
+  "manifest_version": 3,
+  "name": "Microtrack Alpha",
+  "description": "Track your micros, microsoft, microwave, microphone, microorganisms, etc...",
+  "version": "0.1",
+  "action": {
+    "default_popup": "popup/popup.html"
+  },
+  "permissions": [
+    "background",
+    "tabs",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://www.newworld.co.nz/shop/*"
+  ],
+  "icons": {
+    "16": "images/microtrack-16.png",
+    "32": "images/microtrack-32.png",
+    "48": "images/microtrack-48.png",
+    "128": "images/microtrack-128.png"
+  },
+  "background": {
+    "service_worker": "scripts/background.js"
   }
+}

@@ -19,7 +19,7 @@ async function sendTrolley(sendResponse) {
 
 // Listens for getTrolley, then sends the trolley if it is provided
 chrome.runtime.onMessage.addListener((request, _, sendResponse) => {
-    if (request === "getTrolley") {
+    if (request === "getPageContent") {
         sendTrolley(sendResponse);
         return true; // Returning true tells chrome we expect an async response (as sendTrolley is async)
     } else {
